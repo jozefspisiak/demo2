@@ -3,7 +3,7 @@ version: "3.1"
 services:
 
   db:
-    container_name: db
+    container_name: demo2_db
     image: mysql:5.7
     environment:
       - MYSQL_ROOT_PASSWORD=1234
@@ -14,7 +14,7 @@ services:
     ports:
       - "3307:3306"
   web:
-    container_name: web
+    container_name: demo2_web
     image: t3kit/ubuntu16-php7-apache:0.0.1
     ports:
       - "8888:80"
@@ -31,7 +31,7 @@ services:
       - USERID=1001
       - GROUPID=1001
   t3kit_solr:
-    container_name: t3kit_solr
+    container_name: demo2_t3kit_solr
     image: typo3solr/ext-solr:6.0.0
     ports:
       - "8983:8983"
@@ -39,7 +39,7 @@ services:
       - ./solrdata:/opt/solr/server/solr/data/
     restart: always
   mailhog:
-    container_name: t3kit_mailhog
+    container_name: demo2_t3kit_mailhog
     image: mailhog/mailhog
     ports:
       - "8025:8025"
